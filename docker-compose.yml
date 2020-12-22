@@ -54,6 +54,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=root_pass
       - MYSQL_ROOT_HOST=172.18.1.5 # allows root connections from 172.18.1.5 which is keyrock
+      - MYSQL_DATABASE=idm
       
     networks:
       default:
@@ -91,7 +92,8 @@ services:
   mongo_db:
     image: mongo
     restart: always
-    container_name: 'mongo_db'
+    container_name: mongo_db
+    hostname: mongo_db
     ports: 
       - 27018:27017
     volumes: 
@@ -166,9 +168,9 @@ services:
         ipv4_address: 172.18.1.21 
    
 
-  mongo_seed:
+  mongo-seed:
     image: mongo:latest
-    container_name: mongo_seed
+    container_name: mongo-seed
     volumes:
       - ./mongo-seed:/mongo-seed
     command:

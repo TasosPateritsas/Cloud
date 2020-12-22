@@ -1,4 +1,4 @@
-
+#! /bin/bash
 mongoimport --host mongo_db --db cloud --collection movies --type json --file /mongo-seed/volumes_data/movies.json --jsonArray
 
 mongoimport --host mongo_db --db cloud --collection cinemas --type json --file /mongo-seed/volumes_data/cinemas.json --jsonArray

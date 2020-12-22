@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "5fde179e09b05934155588a2"
+  },
+  "movieid": "5fd9f60660d46b7af54d7112",
+  "userid": "4904a34c-dd97-4c96-96b6-d45bc181461a"
+},{
+  "_id": {
+    "$oid": "5fde17a0bf85fd1995633e43"
+  },
+  "movieid": "5fda9e618708a51a9e7c07a2",
+  "userid": "4904a34c-dd97-4c96-96b6-d45bc181461a"
+},{
+  "_id": {
+    "$oid": "5fe1ca95c9dd4b6c7f2368b2"
+  },
+  "movieid": "5fda9e75c07a61716723c862",
+  "userid": "4904a34c-dd97-4c96-96b6-d45bc181461a"
+}]

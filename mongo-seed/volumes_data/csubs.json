@@ -1,0 +1,173 @@
+[{
+  "_id": {
+    "$oid": "5fdb41def9631ddf9c7c3d50"
+  },
+  "expiration": 2209039200,
+  "reference": "http://172.18.1.8/orion_selector.php",
+  "custom": false,
+  "throttling": 5,
+  "servicePath": "/#",
+  "description": "4904a34c-dd97-4c96-96b6-d45bc181461a",
+  "status": "active",
+  "entities": [
+    {
+      "id": "5fd9f60660d46b7af54d7112",
+      "isPattern": "false",
+      "type": "Thing",
+      "isTypePattern": false
+    }
+  ],
+  "attrs": [
+    "title",
+    "startdate",
+    "enddate"
+  ],
+  "metadata": [],
+  "blacklist": false,
+  "onlyChanged": false,
+  "conditions": [
+    "startdate",
+    "enddate"
+  ],
+  "lastNotification": 1608423712,
+  "count": 2,
+  "expression": {
+    "q": "",
+    "mq": "",
+    "geometry": "",
+    "coords": "",
+    "georel": ""
+  },
+  "format": "normalized",
+  "lastSuccess": 1608423712,
+  "lastSuccessCode": 200
+},{
+  "_id": {
+    "$oid": "5fde179e362adb75dbef2d4f"
+  },
+  "expiration": 2209039200,
+  "reference": "http://172.18.1.8/orion_selector.php",
+  "custom": false,
+  "throttling": 5,
+  "servicePath": "/#",
+  "description": "4904a34c-dd97-4c96-96b6-d45bc181461a",
+  "status": "active",
+  "entities": [
+    {
+      "id": "5fd9f60660d46b7af54d7112",
+      "isPattern": "false",
+      "type": "Thing",
+      "isTypePattern": false
+    }
+  ],
+  "attrs": [
+    "title",
+    "startdate",
+    "enddate"
+  ],
+  "metadata": [],
+  "blacklist": false,
+  "onlyChanged": false,
+  "conditions": [
+    "startdate",
+    "enddate"
+  ],
+  "lastNotification": 1608423712,
+  "count": 2,
+  "expression": {
+    "q": "",
+    "mq": "",
+    "geometry": "",
+    "coords": "",
+    "georel": ""
+  },
+  "format": "normalized",
+  "lastSuccess": 1608423712,
+  "lastSuccessCode": 200
+},{
+  "_id": {
+    "$oid": "5fde17a0362adb75dbef2d50"
+  },
+  "expiration": 2209039200,
+  "reference": "http://172.18.1.8/orion_selector.php",
+  "custom": false,
+  "throttling": 5,
+  "servicePath": "/#",
+  "description": "4904a34c-dd97-4c96-96b6-d45bc181461a",
+  "status": "active",
+  "entities": [
+    {
+      "id": "5fda9e618708a51a9e7c07a2",
+      "isPattern": "false",
+      "type": "Thing",
+      "isTypePattern": false
+    }
+  ],
+  "attrs": [
+    "title",
+    "startdate",
+    "enddate"
+  ],
+  "metadata": [],
+  "blacklist": false,
+  "onlyChanged": false,
+  "conditions": [
+    "startdate",
+    "enddate"
+  ],
+  "lastNotification": 1608423699,
+  "count": 2,
+  "expression": {
+    "q": "",
+    "mq": "",
+    "geometry": "",
+    "coords": "",
+    "georel": ""
+  },
+  "format": "normalized",
+  "lastSuccess": 1608423699,
+  "lastSuccessCode": 200
+},{
+  "_id": {
+    "$oid": "5fe1ca95efc9f95aa079e4b2"
+  },
+  "expiration": 2209039200,
+  "reference": "http://172.18.1.8/orion_selector.php",
+  "custom": false,
+  "throttling": 5,
+  "servicePath": "/#",
+  "description": "4904a34c-dd97-4c96-96b6-d45bc181461a",
+  "status": "active",
+  "entities": [
+    {
+      "id": "5fda9e75c07a61716723c862",
+      "isPattern": "false",
+      "type": "Thing",
+      "isTypePattern": false
+    }
+  ],
+  "attrs": [
+    "title",
+    "startdate",
+    "enddate"
+  ],
+  "metadata": [],
+  "blacklist": false,
+  "onlyChanged": false,
+  "conditions": [
+    "startdate",
+    "enddate"
+  ],
+  "lastNotification": 1608633368,
+  "count": 2,
+  "expression": {
+    "q": "",
+    "mq": "",
+    "geometry": "",
+    "coords": "",
+    "georel": ""
+  },
+  "format": "normalized",
+  "lastSuccess": 1608633368,
+  "lastSuccessCode": 200
+}]

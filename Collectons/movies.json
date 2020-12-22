@@ -1,0 +1,29 @@
+[
+    {
+        "_id" : "5fc52b34fc027af5fc9bf929",
+        "title": "The Dark Knight",
+        "category": "Action,Crime,Drama",
+        "startdate": {
+            "$date": "2020-11-30T00:00:00Z"
+        },
+        "enddate": {
+            "$date": "2021-02-27T00:00:00Z"
+        },
+        "cinemaname" : "MAGIA"
+    },
+
+    {
+        "_id" : "5fc52b67fc027af5fc9bf92a",
+        "title": "Thor",
+        "category": "Action,Crime,Drama",
+        "startdate": {
+            "$date": "2020-11-30T00:00:00Z"
+        },
+        "enddate": {
+            "$date": "2020-12-27T00:00:00Z"
+        },
+        "cinemaname" : "MAGIA"
+    }
+
+
+]

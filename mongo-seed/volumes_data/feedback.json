@@ -1,0 +1,43 @@
+[{
+  "_id": {
+    "$oid": "5fde991309b05934155588a3"
+  },
+  "title": "Thor",
+  "startdate": {
+    "$date": "2020-10-30T00:00:00Z"
+  },
+  "enddate": {
+    "$date": "2020-11-17T00:00:00Z"
+  },
+  "userid": "4904a34c-dd97-4c96-96b6-d45bc181461a",
+  "movieid": "5fda9e618708a51a9e7c07a2",
+  "subid": "5fde17a0362adb75dbef2d50"
+},{
+  "_id": {
+    "$oid": "5fde9920f203941ef73c2b73"
+  },
+  "title": "Fury",
+  "startdate": {
+    "$date": "2020-10-30T00:00:00Z"
+  },
+  "enddate": {
+    "$date": "2020-11-17T00:00:00Z"
+  },
+  "userid": "4904a34c-dd97-4c96-96b6-d45bc181461a",
+  "movieid": "5fd9f60660d46b7af54d7112",
+  "subid": "5fdb41def9631ddf9c7c3d50"
+},{
+  "_id": {
+    "$oid": "5fe1cc18c9dd4b6c7f2368b3"
+  },
+  "title": "Ted 2 ",
+  "startdate": {
+    "$date": "2020-10-30T00:00:00Z"
+  },
+  "enddate": {
+    "$date": "2020-11-17T00:00:00Z"
+  },
+  "userid": "4904a34c-dd97-4c96-96b6-d45bc181461a",
+  "movieid": "5fda9e75c07a61716723c862",
+  "subid": "5fe1ca95efc9f95aa079e4b2"
+}]

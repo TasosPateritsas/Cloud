@@ -1,0 +1,40 @@
+[{
+  "_id": {
+    "$oid": "5fd9f60660d46b7af54d7112"
+  },
+  "title": "Fury",
+  "startdate": {
+    "$date": "2020-10-30T00:00:00Z"
+  },
+  "enddate": {
+    "$date": "2020-11-17T00:00:00Z"
+  },
+  "category": "Action",
+  "cinemaname": "MAGIA"
+},{
+  "_id": {
+    "$oid": "5fda9e618708a51a9e7c07a2"
+  },
+  "title": "Thor",
+  "startdate": {
+    "$date": "2020-10-30T00:00:00Z"
+  },
+  "enddate": {
+    "$date": "2020-11-17T00:00:00Z"
+  },
+  "category": "Action",
+  "cinemaname": "MAGIA"
+},{
+  "_id": {
+    "$oid": "5fda9e75c07a61716723c862"
+  },
+  "title": "Ted 2 ",
+  "startdate": {
+    "$date": "2020-10-30T00:00:00Z"
+  },
+  "enddate": {
+    "$date": "2020-11-17T00:00:00Z"
+  },
+  "category": "Comedy",
+  "cinemaname": "MAGIA"
+}]

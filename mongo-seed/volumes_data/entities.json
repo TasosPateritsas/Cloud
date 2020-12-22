@@ -1,0 +1,160 @@
+[{
+  "_id": {
+    "id": "5fd9f60660d46b7af54d7112",
+    "type": "Thing",
+    "servicePath": "/"
+  },
+  "attrNames": [
+    "title",
+    "startdate",
+    "enddate",
+    "category",
+    "cinemaname"
+  ],
+  "attrs": {
+    "title": {
+      "type": "Text",
+      "creDate": 1608119814.4057274,
+      "modDate": 1608119814.4057274,
+      "value": "Fury",
+      "mdNames": []
+    },
+    "startdate": {
+      "value": "2020-10-30",
+      "type": "Text",
+      "mdNames": [],
+      "creDate": 1608119814.4057274,
+      "modDate": 1608423712.539006
+    },
+    "enddate": {
+      "type": "Text",
+      "creDate": 1608119814.4057274,
+      "modDate": 1608119814.4057274,
+      "value": "2020-11-17",
+      "mdNames": []
+    },
+    "category": {
+      "type": "Text",
+      "creDate": 1608119814.4057274,
+      "modDate": 1608119814.4057274,
+      "value": "Action",
+      "mdNames": []
+    },
+    "cinemaname": {
+      "type": "Text",
+      "creDate": 1608119814.4057274,
+      "modDate": 1608119814.4057274,
+      "value": "MAGIA",
+      "mdNames": []
+    }
+  },
+  "creDate": 1608119814.4057274,
+  "modDate": 1608423712.589299,
+  "lastCorrelator": "5bd88928-4259-11eb-9eb7-0242ac12010f"
+},{
+  "_id": {
+    "id": "5fda9e618708a51a9e7c07a2",
+    "type": "Thing",
+    "servicePath": "/"
+  },
+  "attrNames": [
+    "title",
+    "startdate",
+    "enddate",
+    "category",
+    "cinemaname"
+  ],
+  "attrs": {
+    "title": {
+      "type": "Text",
+      "creDate": 1608162913.7038493,
+      "modDate": 1608162913.7038493,
+      "value": "Thor",
+      "mdNames": []
+    },
+    "startdate": {
+      "value": "2020-10-30",
+      "type": "Text",
+      "mdNames": [],
+      "creDate": 1608162913.7038493,
+      "modDate": 1608423699.583786
+    },
+    "enddate": {
+      "type": "Text",
+      "creDate": 1608162913.7038493,
+      "modDate": 1608162913.7038493,
+      "value": "2020-11-17",
+      "mdNames": []
+    },
+    "category": {
+      "type": "Text",
+      "creDate": 1608162913.7038493,
+      "modDate": 1608162913.7038493,
+      "value": "Action",
+      "mdNames": []
+    },
+    "cinemaname": {
+      "type": "Text",
+      "creDate": 1608162913.7038493,
+      "modDate": 1608162913.7038493,
+      "value": "MAGIA",
+      "mdNames": []
+    }
+  },
+  "creDate": 1608162913.7038493,
+  "modDate": 1608423699.5915759,
+  "lastCorrelator": "541b37c6-4259-11eb-b61d-0242ac12010f"
+},{
+  "_id": {
+    "id": "5fda9e75c07a61716723c862",
+    "type": "Thing",
+    "servicePath": "/"
+  },
+  "attrNames": [
+    "title",
+    "startdate",
+    "enddate",
+    "category",
+    "cinemaname"
+  ],
+  "attrs": {
+    "title": {
+      "type": "Text",
+      "creDate": 1608162933.1760867,
+      "modDate": 1608162933.1760867,
+      "value": "Ted 2 ",
+      "mdNames": []
+    },
+    "startdate": {
+      "value": "2020-10-30",
+      "type": "Text",
+      "mdNames": [],
+      "creDate": 1608162933.1760867,
+      "modDate": 1608633367.948887
+    },
+    "enddate": {
+      "type": "Text",
+      "creDate": 1608162933.1760867,
+      "modDate": 1608162933.1760867,
+      "value": "2020-11-17",
+      "mdNames": []
+    },
+    "category": {
+      "type": "Text",
+      "creDate": 1608162933.1760867,
+      "modDate": 1608162933.1760867,
+      "value": "Comedy",
+      "mdNames": []
+    },
+    "cinemaname": {
+      "type": "Text",
+      "creDate": 1608162933.1760867,
+      "modDate": 1608162933.1760867,
+      "value": "MAGIA",
+      "mdNames": []
+    }
+  },
+  "creDate": 1608162933.1760867,
+  "modDate": 1608633368.2838295,
+  "lastCorrelator": "80311efe-4441-11eb-8ac2-0242ac12010f"
+}]

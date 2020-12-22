@@ -1,0 +1,189 @@
+version: '3.7'
+
+services:
+  app_logic_apache:
+    build: 
+      context: .
+      dockerfile:  './dockerfiles/apache_app_logic/Dockerfile'
+    container_name: app_logic_apache
+    restart: always
+    ports: 
+      - '80:80'
+
+    volumes:
+      - ./Application_Logic:/var/www/html/
+    #dont expose this container!! no ports!
+    networks:
+      default:
+        ipv4_address: 172.18.1.8
+        
+  data_storage_apache:
+    build: 
+      context: .
+      dockerfile:  './dockerfiles/data_storage/Dockerfile'
+    container_name: data_storage_apache
+    restart: always
+    volumes:
+      - ./Data_storage:/var/www/html/
+    expose: 
+      - '80'
+    networks:
+      default:
+        ipv4_address: 172.18.1.9
+        
+  orion:
+    image: fiware/orion
+    container_name: orion
+    links:
+      - mongo_db_orion
+    command: -dbhost mongo_db_orion -logLevel DEBUG -noCache
+   
+    networks:
+      default:
+        ipv4_address: 172.18.1.15 
+
+    
+  mysql_db:
+    build: 
+      context: './dockerfiles/mysql/'
+    container_name: mysql_db
+    hostname: mysql_db
+    restart: always
+    ports:
+      - '3306:3306' 
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_pass
+      - MYSQL_ROOT_HOST=172.18.1.5 # allows root connections from 172.18.1.5 which is keyrock
+      
+    networks:
+      default:
+        ipv4_address: 172.18.1.6
+
+    volumes:
+      - mysql_dat:/var/lib/mysql  #all the contents of /var/lib/mysql will be permently saved to mysql_dat volume
+      - ./idm_backup:/docker-entrypoint-initdb.d 
+
+    
+  keyrock:
+    image: fiware/idm:latest
+    container_name: fiware-keyrock
+    hostname: keyrock
+    depends_on:
+      - mysql_db
+    ports:
+      - "3005:3000" #expose to 3005 for signup!sudo docker container logs app_logic_apache -f
+      - "443:443" 
+    environment:
+      - DEBUG=idm:*
+      - IDM_DB_HOST=mysql_db
+      - IDM_DB_USER=root
+      - IDM_DB_PASS=root_pass #password of root mysql!
+      - IDM_HOST=http://localhost:3000
+      - IDM_PORT=3000
+      - IDM_ADMIN_USER=apate
+      - IDM_ADMIN_EMAIL=apate@test.com
+      - IDM_ADMIN_PASS=1234
+
+    networks:
+      default:
+        ipv4_address: 172.18.1.5 
+
+  mongo_db:
+    image: mongo
+    restart: always
+    container_name: 'mongo_db'
+    ports: 
+      - 27018:27017
+    volumes: 
+      - mongo_db:/data/db
+    networks:
+      default:
+        ipv4_address: 172.18.1.10 
+
+  mongo_db_orion:
+    image: mongo:3.2
+    container_name: mongo_db_orion
+    hostname: mongo_db_orion
+    command: --nojournal
+    ports: 
+      - '27017:27017'  #so we can connect with db
+    volumes: 
+      - orion_vol:/data/db
+    
+  
+  orion_proxy:
+    image: fiware/pep-proxy 
+    container_name: orion_proxy
+    depends_on:
+    - keyrock
+    ports:
+    - "1027:1027"
+    expose:
+    - "1027"
+    environment: 
+    - PEP_PROXY_APP_HOST=orion
+    - PEP_PROXY_APP_PORT=1026
+    - PEP_PROXY_PORT=1027
+    - PEP_PROXY_IDM_HOST=keyrock
+    - PEP_PROXY_HTTPS_ENABLED=false
+    - PEP_PROXY_AUTH_ENABLED=false
+    - PEP_PROXY_IDM_SSL_ENABLED=false
+    - PEP_PROXY_IDM_PORT=3005
+    - PEP_PROXY_APP_ID=5c7612ab-6d86-4658-8c4d-bc21a6b4a631
+    - PEP_PROXY_USERNAME=pep_proxy_c18c0337-2ca3-46ff-a6c3-829d12a56a9b
+    - PEP_PASSWORD=pep_proxy_0c77ebe1-5d1f-454b-a76f-10f879f0679c
+    - PEP_PROXY_PDP=idm
+    - PEP_PROXY_MAGIC_KEY=magic_key 
+    networks:
+      default:
+        ipv4_address: 172.18.1.20 
+
+  data_storage_proxy:
+    image: fiware/pep-proxy 
+    container_name: data_storage_proxy
+    depends_on:
+    - keyrock
+    ports:
+    - "2000:1027" #expose the default 1027 into 2000
+    expose: 
+    - "2000"
+    environment: 
+    - PEP_PROXY_APP_HOST=data_storage_apache
+    - PEP_PROXY_APP_PORT=80
+    - PEP_PROXY_PORT=2000
+    - PEP_PROXY_IDM_HOST=keyrock
+    - PEP_PROXY_HTTPS_ENABLED=false
+    - PEP_PROXY_AUTH_ENABLED=false
+    - PEP_PROXY_IDM_SSL_ENABLED=false
+    - PEP_PROXY_IDM_PORT=3005
+    - PEP_PROXY_APP_ID=5c7612ab-6d86-4658-8c4d-bc21a6b4a631
+    - PEP_PROXY_USERNAME=pep_proxy_c18c0337-2ca3-46ff-a6c3-829d12a56a9b
+    - PEP_PASSWORD=pep_proxy_0c77ebe1-5d1f-454b-a76f-10f879f0679c
+    - PEP_PROXY_PDP=idm
+    - PEP_PROXY_MAGIC_KEY=magic_key 
+    networks:
+      default:
+        ipv4_address: 172.18.1.21 
+   
+
+  mongo_seed:
+    image: mongo:latest
+    container_name: mongo_seed
+    volumes:
+      - ./mongo-seed:/mongo-seed
+    command:
+      /mongo-seed/import.sh  
+
+volumes:
+  mysql_dat:
+  mongo_db:
+  orion_vol:
+  
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: 172.18.1.0/24
+
+
+  

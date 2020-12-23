@@ -144,6 +144,27 @@ if($_SESSION['role'] != 'CINEMAOWNER'){
             });
             
         });
+        $(document).on('click','button[id="buycinema"]', function(){
+            /* Get input value on change */
+           
+            var cinemaname = document.getElementById("cinemaname2id").value;
+            var uid = document.getElementById("uid2").value;
+            
+        
+            $.ajax({
+                url:"buyCinema.php",    //the page containing php script
+                type: "post",    //request type,
+                dataType: "json",
+                data: {uid : uid, cinemaname:cinemaname},
+                success:function(result){
+                  console.log(result);
+                },
+                error: function(){
+                    console.log("no");
+                }
+            });
+            
+        });
 
 });
     </script>
@@ -173,16 +194,10 @@ if($_SESSION['role'] != 'CINEMAOWNER'){
           <ul class="dropdown-menu">
             <li><a href="movies.php">Movies</a></li>
             <li><a href="owners.php">Cinemas</a></li>
-            <li><a href="administration.php">Administration</a></li>
-        
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-left">
-      <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search Category"><div class="result"></div>
-        </div>
-      </form>
+      
       <ul class="nav navbar-nav navbar-right">
         <li><a><?php echo htmlspecialchars($_SESSION["username"]) , " [" ,htmlspecialchars($_SESSION["role"]), "]" ; ?></a></li>
         <li><a href="logout.php" class="btn btn-success pull-right">Logout</a></li>
@@ -197,7 +212,42 @@ if($_SESSION['role'] != 'CINEMAOWNER'){
                 <div class="col-md-12">
                     <div class="page-header clearfix">
                         <h2 class="pull-left">Movies Details</h2>
-                        
+                        <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#exampleModal2">
+                          Buy Cinema
+                        </button>
+                        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModal2Label" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModal2Label">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                <p>Please fill this form to buy a cinema.</p>
+                                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                                    <div hidden = true class="form-group <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
+                                        <label>ID</label>
+                                        <input id="uid2" type="text" name="name" class="form-control" value="<?php echo $_SESSION['id']; ?>">
+                                        <span class="help-block"><?php echo $name_err;?></span>
+                                    </div>
+
+                                    <div class="form-group <?php echo (!empty($cinemaname2_err)) ? 'has-error' : ''; ?>">
+                                        <label>Cinema Name</label>
+                                        <input id="cinemaname2id" type="text" name="cinemaname2" class="form-control" value="<?php echo $cinemaname2; ?>">
+                                        <span class="help-block"><?php echo $cinemaname2_err;?></span>
+                                    </div>
+                                
+                                </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button id="buycinema" type="button" class="btn btn-success">Save changes</button>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
                         <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#exampleModal">
                         Insert a Movie
                         </button>

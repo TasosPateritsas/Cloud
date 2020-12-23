@@ -44,25 +44,7 @@ if($_SESSION['role'] != 'USER'){
         });
 
     $(document).ready(function(){
-    $('.form-group input[type="text"]').on("keyup input", function(){
-        /* Get input value on change */
-        var inputVal = $(this).val();
-        var resultDropdown = $(this).siblings(".result");
-        if(inputVal.length){
-            $.get("moviesSearch.php", {term: inputVal}).done(function(data){
-                // Display the returned data in browser
-                resultDropdown.html(data);
-            });
-        } else{
-            resultDropdown.empty();
-        }
-    });
     
-    // Set search input value on click of result item
-    $(document).on("click", ".result p", function(){
-        $(this).parents(".form-group").find('input[type="text"]').val($(this).text());
-        $(this).parent(".result").empty();
-    });
     $(document).on('click','button[id^="fav_"]', function(){
         /* Get input value on change */
         var movie_id = $(this).closest("tr").find('td:eq(0)').text();
@@ -108,16 +90,12 @@ if($_SESSION['role'] != 'USER'){
           <ul class="dropdown-menu">
             <li><a href="movies.php">Movies</a></li>
             <li><a href="owners.php">Cinemas</a></li>
-            <li><a href="administration.php">Administration</a></li>
+            
         
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-left">
-      <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search Category"><div class="result"></div>
-        </div>
-      </form>
+      
       <ul class="nav navbar-nav navbar-right">
         <li><a><?php echo htmlspecialchars($_SESSION["username"]) , " [" ,htmlspecialchars($_SESSION["role"]), "]" ; ?></a></li>
         <li><a href="logout.php" class="btn btn-success pull-right">Logout</a></li>

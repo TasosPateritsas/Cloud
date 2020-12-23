@@ -292,6 +292,17 @@ session_start();
           }
         echo json_encode($arr);
     }
+    //buy cinema  
+    if(isset($_GET['buy_cinema']) && $_GET['buy_cinema'] == true){
+        $bulk = new MongoDB\Driver\BulkWrite;
+        $document3 = ['_id' => new MongoDB\BSON\ObjectId, 
+        'name' => $_GET["name"],
+        'owner' => $_GET["owner"]
+        ];
+        $bulk->insert($document3);
+        $result = $manager->executeBulkWrite('cloud.cinemas', $bulk);
+        echo json_encode("sucess");
+    }
 
     
 

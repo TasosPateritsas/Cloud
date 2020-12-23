@@ -139,7 +139,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
           <ul class="dropdown-menu">
             <li><a href="movies.php">Movies</a></li>
             <li><a href="owners.php">Cinemas</a></li>
-            <li><a href="administration.php">Administration</a></li>
+            
         
           </ul>
         </li>
